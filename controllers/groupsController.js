@@ -17,7 +17,9 @@ module.exports = {
     store: (req, res) => {
 
         let group = req.body;
-
+        group.image = req.file.filename;
+        console.log(group);
+        
         groupId = groupsModel.create(group);
 
         res.redirect('/groups/' + groupId);
